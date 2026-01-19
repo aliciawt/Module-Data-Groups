@@ -21,6 +21,19 @@ test.todo("given an empty array, returns -Infinity");
 // Given an array with one number
 // When passed to the max function
 // Then it should return that number
+[
+    {input: [], expected: -Infinity},
+    {input: [0], expected: 0},
+    {input: [-5, 5], expected: 5}
+    {input: [7, 3, -1, 15], expected: 15},
+    {input: [-23, -67, -5, -17], expected: -5},
+    {input: [2.3, 6.7, 5.5, 1.7], expected: 6.7},
+    {input: [-2.3, -6.7, -5.5, -1.7], expected: -1.7},
+    {input: [17, -9, 'December', '7', 9], expected: 17},
+    {input: ['September', 'Christmas', '13', '12'], expected: null},
+].forEach(testCase => {
+    test ('given an array of ${testCase.input} should find maximum value and return ${testCase.expected}')
+})
 
 // Given an array with both positive and negative numbers
 // When passed to the max function
