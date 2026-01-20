@@ -24,7 +24,7 @@ const findMax = require("./max.js");
     // Given an array with both positive and negative numbers
     // When passed to the max function
     // Then it should return the largest number overall
-    {input: [-5, 5], expected: 5}
+    {input: [-5, 5], expected: 5},
     {input: [7, 3, -1, 15], expected: 15},
     // Given an array with just negative numbers
     // When passed to the max function
@@ -44,7 +44,7 @@ const findMax = require("./max.js");
     // Then it should return the least surprising value given how it behaves for all other inputs
     {input: ['September', 'Christmas', '13', '12'], expected: null},
 ].forEach(testCase => {
-    test ('given an array of ${testCase.input} should find maximum value and return ${testCase.expected}', () => {
+    test (`given an array of ${testCase.input} should find maximum value and return ${testCase.expected}`, () => {
         expect(findMax(testCase.input)).toEqual(testCase.expected);
     });
 });
