@@ -44,5 +44,7 @@ const findMax = require("./max.js");
     // Then it should return the least surprising value given how it behaves for all other inputs
     {input: ['September', 'Christmas', '13', '12'], expected: null},
 ].forEach(testCase => {
-    test ('given an array of ${testCase.input} should find maximum value and return ${testCase.expected}')
-})
+    test ('given an array of ${testCase.input} should find maximum value and return ${testCase.expected}', () => {
+        expect(findMax(testCase.input)).toEqual(testCase.expected);
+    });
+});
