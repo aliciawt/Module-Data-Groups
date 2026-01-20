@@ -12,45 +12,37 @@ We have set things up already so that this file can see your function from the o
 
 const findMax = require("./max.js");
 
-// Given an empty array
-// When passed to the max function
-// Then it should return -Infinity
-// Delete this test.todo and replace it with a test.
-test.todo("given an empty array, returns -Infinity");
-
-// Given an array with one number
-// When passed to the max function
-// Then it should return that number
 [
+    // Given an empty array
+    // When passed to the max function
+    // Then it should return -Infinity
     {input: [], expected: -Infinity},
+    // Given an array with one number
+    // When passed to the max function
+    // Then it should return that number
     {input: [0], expected: 0},
+    // Given an array with both positive and negative numbers
+    // When passed to the max function
+    // Then it should return the largest number overall
     {input: [-5, 5], expected: 5}
     {input: [7, 3, -1, 15], expected: 15},
+    // Given an array with just negative numbers
+    // When passed to the max function
+    // Then it should return the closest one to zero
     {input: [-23, -67, -5, -17], expected: -5},
+    // Given an array with decimal numbers
+    // When passed to the max function
+    // Then it should return the largest decimal number
     {input: [2.3, 6.7, 5.5, 1.7], expected: 6.7},
     {input: [-2.3, -6.7, -5.5, -1.7], expected: -1.7},
+    // Given an array with non-number values
+    // When passed to the max function
+    // Then it should return the max and ignore non-numeric values
     {input: [17, -9, 'December', '7', 9], expected: 17},
+    // Given an array with only non-number values
+    // When passed to the max function
+    // Then it should return the least surprising value given how it behaves for all other inputs
     {input: ['September', 'Christmas', '13', '12'], expected: null},
 ].forEach(testCase => {
     test ('given an array of ${testCase.input} should find maximum value and return ${testCase.expected}')
 })
-
-// Given an array with both positive and negative numbers
-// When passed to the max function
-// Then it should return the largest number overall
-
-// Given an array with just negative numbers
-// When passed to the max function
-// Then it should return the closest one to zero
-
-// Given an array with decimal numbers
-// When passed to the max function
-// Then it should return the largest decimal number
-
-// Given an array with non-number values
-// When passed to the max function
-// Then it should return the max and ignore non-numeric values
-
-// Given an array with only non-number values
-// When passed to the max function
-// Then it should return the least surprising value given how it behaves for all other inputs
