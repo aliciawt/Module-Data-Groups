@@ -1,7 +1,20 @@
 const createLookup = require("./lookup.js");
 
-test.todo("creates a country currency code lookup for multiple codes");
-
+[
+  {input: [], expected: {}},
+  {input: [['ID', 'IDR']], expected: {'ID': 'IDR'}},
+  {input: [['ID', 'IDR'], ['PL', 'PLN']], expected: {'ID': 'IDR', 'PL': 'PLN'}},
+  {
+    input: [['ID', 'IDR'], ['PL', 'PLN'], ['ES', 'EUR'], ['MY', 'MYR']],
+    expected: {'ID': 'IDR', 'PL': 'PLN', 'ES': 'EUR', 'MY': 'MYR'}
+  }
+].forEach(testCase => {
+  test(`given an input of array of arrays containing country code and its currency code ${JSON.stringify(testCase.input)}, 
+  returns an object pairing it ${JSON.stringify(testCase.expected)}`, () =>
+  {
+    expect(createLookup(testCase.input)).toEqual(testCase.expected);
+  })
+})
 /*
 
 Create a lookup object of key value pairs from an array of code pairs
