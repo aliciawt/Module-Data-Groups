@@ -41,7 +41,8 @@ as the object doesn't contains a key of 'c'
     {input: ["hello world", 'd'], expected: false},
     {input: [true, 'c'], expected: false},
 ].forEach(testCase => {
-    test (`given an input of object and target ${testCase.input} should check if the object property contains the target and return ${testCase.expected}`, () => {
+    test (`given an input of object and target ${JSON.stringify(testCase.input)}
+    should check if the object property contains the target and return ${JSON.stringify(testCase.expected)}`, () => {
         expect(contains(testCase.input[0], testCase.input[1])).toEqual(testCase.expected);
     });
 });
