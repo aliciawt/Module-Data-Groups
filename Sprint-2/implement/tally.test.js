@@ -23,12 +23,39 @@ const tally = require("./tally.js");
 // Given an empty array
 // When passed to tally
 // Then it should return an empty object
-test.todo("tally on an empty array returns an empty object");
+test("tally on an empty array returns an empty object", () => {
+    expect(tally([])).toEqual({});
+});
 
 // Given an array with duplicate items
 // When passed to tally
 // Then it should return counts for each unique item
+[
+    {input: ["hihi"], expected: {"hihi": 1}},
+    {input: [67], expected: {"67": 1}},
+    {input: ["ooh", "ooh", "ah", "ah", "eek"], expected: {"ooh": 2, "ah": 2, "eek": 1}},
+    {input: [1, 2, 3, 2, 3], expected: {"1": 1, "2": 2, "3": 3}},    
+].forEach(testCase => {
+    test(`given an input array of ${JSON.stringify(testCase.input)}, 
+    should tally each item in the array and return ${JSON.stringify(testCase.expected)}`, () => {
+        expect(tally(testCase.input)).toEqual(testCase.expected);
+    })
+})
 
 // Given an invalid input like a string
 // When passed to tally
 // Then it should throw an error
+[
+    {input: "hello there!"},
+    {input: ""},
+    {input: 12345},
+    {input: null},
+    {input: undefined},
+    {input: Infinity},
+    {input: NaN},
+    {input: {}},
+].forEach(testCase => {
+    test(`tally throws an error for input: ${JSON.stringify(testCase.input)}`, () => {
+        expect(() => tally(testCase.input)).toThrow("Invalid input");
+    });
+});
