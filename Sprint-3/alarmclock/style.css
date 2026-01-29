@@ -13,3 +13,12 @@
 h1 {
   text-align: center;
 }
+
+.flash {
+  animation: flash 1s infinite;
+}
+
+@keyframes flash {
+  from {background-color: red;}
+  to {background-color: white;}
+}
