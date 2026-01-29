@@ -12,15 +12,6 @@ body {
     margin: 0;
 }
 
-#auto-gen {
-    margin-bottom: 20px;
-}
-
-.auto-gen-on {
-    color: green;
-    font-weight: bold;
-}
-
 #qotd {
     background-color: lightpink;
     padding: 25px;
