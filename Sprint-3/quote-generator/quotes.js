@@ -504,3 +504,16 @@ function showRandomQuote() {
 }
 
 newQuoteButton.addEventListener("click", showRandomQuote);
+
+const autoGenerator = document.getElementById("auto-gen-option");
+const label = document.querySelector("label");
+
+autoGenerator.addEventListener("change", () => {
+  if (autoGenerator.checked) {
+    label.textContent = "Auto-generate: ON";
+    label.classList.toggle("auto-gen-on");
+  } else {
+    label.textContent = "Auto-generate";
+    label.classList.toggle("auto-gen-on");
+  }
+})
