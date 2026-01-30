@@ -21,3 +21,21 @@ const books = [
   },
 ];
 
+const template = document.getElementById("content");
+
+const createReadingList = (books) => {
+  const fragment = template.content.cloneNode(true);
+  const card = fragment.querySelector(".card");
+
+  card.querySelector("h2").textContent = `${books.title} by ${books.author}`;
+  card.querySelector("img").src = books.bookCoverImage;
+
+  card.classList.add(books.alreadyRead ? "already-read" : "not-read");
+ 
+
+  return fragment;
+};
+
+const bookCards = books.map(createReadingList);
+
+document.body.append(...bookCards);
