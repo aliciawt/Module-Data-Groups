@@ -508,12 +508,16 @@ newQuoteButton.addEventListener("click", showRandomQuote);
 const autoGenerator = document.getElementById("auto-gen-option");
 const label = document.querySelector("label");
 
+let interval = null;
+
 autoGenerator.addEventListener("change", () => {
   if (autoGenerator.checked) {
     label.textContent = "Auto-generate: ON";
     label.classList.toggle("auto-gen-on");
+    interval = setInterval(showRandomQuote, 60000)
   } else {
     label.textContent = "Auto-generate";
     label.classList.toggle("auto-gen-on");
+    clearInterval(interval);
   }
 })

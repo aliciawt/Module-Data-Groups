@@ -41,7 +41,8 @@ body {
     font-weight: bold;
 }
 
-#new-quote:hover {
+#new-quote:hover,
+#auto-gen:hover {
     cursor: pointer;
     background-color: white;
 }
