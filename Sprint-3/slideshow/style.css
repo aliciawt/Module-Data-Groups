@@ -19,18 +19,24 @@
     object-fit: contain;
 }
 
-#buttons {
+#buttons-1,
+#buttons-2 {
     margin: 20px auto;
     display: flex;
     justify-content: center;
     align-items: center;    
 }
 
-#previous-btn,
-#next-btn {
+button {
+    width: 120px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     padding: 10px 20px;
     margin: 10px;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
     border: none;
     border-radius: 8px;
@@ -40,14 +46,27 @@
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-#previous-btn:hover,
-#next-btn:hover {
+button:not(:disabled):hover {
     background-color: #8c45a0;
     transform: scale(1.05);
 }
 
+button.running:hover {
+    transform: none;
+    background-color: green;
+    cursor: not-allowed;
+}
+
 #previous-btn:disabled,
-#next-btn:disabled {
+#next-btn:disabled,
+#auto-previous-btn:disabled,
+#auto-next-btn:disabled {
     opacity: 0.6;
+    cursor: not-allowed;
+}
+
+button.running {
+    opacity: 0.6;
+    background-color: green !important;
     cursor: not-allowed;
 }
