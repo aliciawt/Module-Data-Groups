@@ -1,1 +1,12 @@
 /** Write your CSS in here **/
+
+div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+#carousel {
+    background-color: pink;
+}
