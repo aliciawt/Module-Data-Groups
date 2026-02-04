@@ -7,6 +7,8 @@ const images = [
 
 
 const container = document.getElementById("carousel")
+const previousButton = document.getElementById("previous-btn");
+const nextButton = document.getElementById("next-btn");
 
 const createImages = (images) => {
     const img = document.createElement("img");
@@ -23,25 +25,29 @@ const imageCards = images.map(createImages);
 let current = 0;
 
 container.append(imageCards[current]);
+updateButtons();
 
-const previousButton = document.getElementById("previous-btn");
-const nextButton = document.getElementById("next-btn");
+function updateButtons() {
+    previousButton.disabled = current === 0;
+    nextButton.disabled = current === imageCards.length - 1;
+}
 
 function showCurrent() {
     container.innerHTML = "";
     container.append(imageCards[current]);
+    updateButtons();
 }
 
 nextButton.addEventListener("click", () => {
     if (current < (imageCards.length - 1)) {
-        current = (current + 1);
+        current++;
         showCurrent();
     }
 })
 
 previousButton.addEventListener("click", () => {
     if (current > 0) {
-        current = (current - 1);
+        current--;
         showCurrent();
     }
 })

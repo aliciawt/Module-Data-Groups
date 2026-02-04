@@ -1,12 +1,53 @@
 /** Write your CSS in here **/
 
-div {
+#carousel {
+    width: 520px;
+    height: 420px;
+    margin: 20px auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    border: 2px solid purple;
+    border-radius: 12px;
+    background-color: pink;
+    overflow: hidden;
 }
 
-#carousel {
-    background-color: pink;
+#carousel img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+#buttons {
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+#previous-btn,
+#next-btn {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    background-color: #d595ea;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+#previous-btn:hover,
+#next-btn:hover {
+    background-color: #8c45a0;
+    transform: scale(1.05);
+}
+
+#previous-btn:disabled,
+#next-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
