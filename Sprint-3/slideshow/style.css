@@ -1,1 +1,72 @@
 /** Write your CSS in here **/
+
+#carousel {
+    width: 520px;
+    height: 420px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid purple;
+    border-radius: 12px;
+    background-color: pink;
+    overflow: hidden;
+}
+
+#carousel img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+#buttons-1,
+#buttons-2 {
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+button {
+    width: 120px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    background-color: #e14fae;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+button:not(:disabled):hover {
+    background-color: #8c45a0;
+    transform: scale(1.05);
+}
+
+button.running:hover {
+    transform: none;
+    background-color: green;
+    cursor: not-allowed;
+}
+
+#previous-btn:disabled,
+#next-btn:disabled,
+#auto-previous-btn:disabled,
+#auto-next-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+button.running {
+    opacity: 0.6;
+    background-color: green !important;
+    cursor: not-allowed;
+}
