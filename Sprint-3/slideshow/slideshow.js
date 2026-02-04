@@ -97,3 +97,12 @@ autoPreviousButton.addEventListener("click", () => {
         }
     }, 1000);
 })
+
+stopButton.addEventListener("click", () => {
+    clearInterval(interval);
+    interval = null;
+    autoNextButton.classList.remove("running");
+    autoPreviousButton.classList.remove("running");
+
+    updateButtons();
+})
