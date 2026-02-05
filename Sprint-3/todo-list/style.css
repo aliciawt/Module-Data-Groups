@@ -1,1 +1,85 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  padding: 20px;
+}
 
+form {
+  margin-bottom: 20px;
+}
+
+#input-container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+#input-container input {
+  flex: 1;
+}
+
+input#new-to-do {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  background-color: #f385e6;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  background-color: #c34de0;
+}
+
+button:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+ul#todo-list {
+  list-style: none;
+  padding: 0;
+}
+
+ul#todo-list li {
+  background-color: white;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+ul#todo-list li span.me-2 {
+  font-size: 16px;
+}
+
+li.completed span.me-2 {
+    text-decoration: line-through;
+    color: gray;
+}
+
+ul#todo-list li .badge {
+  display: flex;
+  gap: 8px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+ul#todo-list li .badge i:hover {
+  color: #ffc107;
+  transform: scale(1.2);
+  transition: 0.2s;
+}
