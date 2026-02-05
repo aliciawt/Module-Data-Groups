@@ -1,4 +1,4 @@
-let newToDo = document.getElementById("new-to-do");
+const newToDo = document.getElementById("new-to-do");
 const submit = document.getElementById("submit");
 
 submit.disabled = newToDo.value.trim() === "";
@@ -15,8 +15,9 @@ function populateTodoList(todos) {
   let list = document.getElementById("todo-list");
   list.innerHTML = "";
 
-  todos.forEach(todo => {
+  todos.forEach((todo, index) => {
     const li = document.createElement("li");
+    li.dataset.index = index;
     
     const taskText = document.createElement("span");
     taskText.textContent = todo.task;
@@ -64,6 +65,24 @@ function addNewTodo(event) {
 }
 
 submit.addEventListener("click", addNewTodo);
+
+const ul = document.getElementById("todo-list");
+
+ul.addEventListener("click", (e) => {
+  const li = e.target.closest("li"); 
+  if (!li) return;
+
+  const index = li.dataset.index;
+
+  if (e.target.classList.contains("fa-trash")) {
+    todos.splice(index, 1);
+    populateTodoList(todos);
+  } else if (e.target.classList.contains("fa-check")) {
+    todos[index].completed = !todos[index].completed;
+    li.classList.toggle("completed");
+  }
+});
+
 
 // Advanced challenge: Write a function that checks the todos in the todo list and deletes the completed ones
 // (we can check which ones are completed by seeing if they have the line-through styling applied or not).
