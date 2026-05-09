@@ -1,3 +1,5 @@
+
+
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
@@ -478,7 +480,7 @@ const quotes = [
   },
   {
     quote: "Nothing is impossible, the word itself says, “I'm possible!”",
-    author: "-Audrey Hepburn",
+    author: "Audrey Hepburn",
   },
   {
     quote: "The only way to do great work is to love what you do.",
@@ -491,3 +493,31 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+const quoteSpace = document.getElementById("quote");
+const authorSpace = document.getElementById("author");
+const newQuoteButton = document.getElementById("new-quote");
+
+function showRandomQuote() {
+  const randomQuote = pickFromArray(quotes);
+  quoteSpace.textContent = randomQuote.quote;
+  authorSpace.textContent = "- " + randomQuote.author;
+}
+
+newQuoteButton.addEventListener("click", showRandomQuote);
+
+const autoGenerator = document.getElementById("auto-gen-option");
+const label = document.querySelector("label");
+
+let interval = null;
+
+autoGenerator.addEventListener("change", () => {
+  if (autoGenerator.checked) {
+    label.textContent = "Auto-generate: ON";
+    label.classList.toggle("auto-gen-on");
+    interval = setInterval(showRandomQuote, 60000)
+  } else {
+    label.textContent = "Auto-generate";
+    label.classList.toggle("auto-gen-on");
+    clearInterval(interval);
+  }
+})
